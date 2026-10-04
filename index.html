@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Mahamoodha Wafika M | Full Stack Developer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#070911; --surface:#0f121c; --line:#1e2333;
+  --violet:#8b5cf6; --cyan:#22d3ee; --magenta:#e879f9;
+  --grad:linear-gradient(120deg,var(--violet),var(--magenta) 52%,var(--cyan));
+  --ink:#eef0f8; --soft:#8b91a8; --faint:#565d74;
+  --display:'Rajdhani',sans-serif; --body:'Inter',sans-serif; --mono:'JetBrains Mono',monospace;
+  box-sizing:border-box; padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+}
+html{scroll-behavior:smooth;scroll-padding-top:env(safe-area-inset-top,0px);background:var(--bg)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);line-height:1.6;overflow-x:hidden}
+::selection{background:var(--magenta);color:#04050a}
+a{color:inherit}
+.glow{position:fixed;inset:0;z-index:0;overflow:hidden;pointer-events:none}
+.glow::before,.glow::after{content:'';position:absolute;border-radius:50%;filter:blur(110px);opacity:.22}
+.glow::before{width:460px;height:460px;background:var(--violet);top:-140px;left:-80px}
+.glow::after{width:420px;height:420px;background:var(--cyan);bottom:-160px;right:-100px}
+#net{position:fixed;inset:0;z-index:1;pointer-events:none;opacity:.55}
+.wrap{max-width:960px;margin:0 auto;padding:0 24px;position:relative;z-index:2}
+.reveal{opacity:0;transform:translateY(26px);transition:opacity .65s ease,transform .65s cubic-bezier(.2,.8,.2,1)}
+.reveal.in{opacity:1;transform:none}
+.glass{background:rgba(255,255,255,.03);border:1px solid var(--line);border-radius:18px;backdrop-filter:blur(14px);transition:border-color .25s,box-shadow .3s}
+.glass:hover{border-color:rgba(232,121,249,.35);box-shadow:0 18px 40px -22px rgba(232,121,249,.35)}
+.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:rgba(7,9,17,.75);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.nav-in{max-width:960px;margin:0 auto;padding:14px 24px;display:flex;align-items:center;justify-content:space-between}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;font-family:var(--display);font-weight:700;font-size:17px}
+.badge{width:36px;height:36px;border-radius:10px;border:1px solid var(--violet);display:flex;align-items:center;justify-content:center;font-size:14px;color:var(--cyan)}
+.nav ul{list-style:none;display:flex;gap:24px;margin:0;padding:0}
+.nav ul a{text-decoration:none;color:var(--soft);font-size:14px;font-weight:500;transition:color .2s}
+.nav ul a:hover{color:var(--cyan)}
+@media(max-width:560px){.nav ul{gap:14px}.brand span.t{display:none}}
+section{padding:80px 0}
+.kicker{font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--cyan);margin:0 0 8px;display:block}
+h2{font-family:var(--display);font-weight:700;font-size:clamp(28px,4.5vw,38px);margin:0 0 30px}
+.hero{min-height:88vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center}
+.hello{color:var(--soft);margin:0 0 6px}
+h1{font-family:var(--display);font-weight:700;font-size:clamp(36px,7vw,64px);line-height:1.05;margin:0 0 12px}
+.grad{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.role{font-family:var(--mono);font-size:19px;margin:0 0 22px;min-height:28px;background:var(--grad);background-size:200% auto;-webkit-background-clip:text;background-clip:text;color:transparent;animation:shift 6s linear infinite}
+@keyframes shift{to{background-position:200% center}}
+.cursor{display:inline-block;width:2px;height:1em;background:var(--cyan);margin-left:2px;vertical-align:text-bottom;animation:blink .9s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+.lead{color:var(--soft);max-width:54ch;margin:0 auto 32px}
+.lead strong{color:var(--ink)}
+.cta{display:flex;gap:14px;flex-wrap:wrap;justify-content:center}
+.btn{display:inline-flex;align-items:center;gap:8px;font-weight:600;font-size:14.5px;padding:13px 24px;border-radius:12px;text-decoration:none;transition:transform .2s,box-shadow .2s}
+.btn.p{background:var(--grad);color:#04050a}
+.btn.p:hover{box-shadow:0 10px 28px -10px rgba(139,92,246,.55);transform:translateY(-2px)}
+.btn.g{border:1px solid var(--line);background:rgba(255,255,255,.02)}
+.btn.g:hover{border-color:var(--cyan);color:var(--cyan);transform:translateY(-2px)}
+.about{padding:28px 30px}
+.about p{margin:0 0 12px;color:var(--soft);font-size:15.5px}
+.about p:last-child{margin:0}
+.about strong{color:var(--ink)}
+.cat{padding:24px 26px}
+.cat-h{display:flex;align-items:center;justify-content:space-between;margin-bottom:18px}
+.cat-l{display:flex;align-items:center;gap:12px;font-family:var(--display);font-weight:700;font-size:18px}
+.ico{width:36px;height:36px;border-radius:10px;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,var(--violet),var(--cyan))}
+.count{font-family:var(--mono);font-size:11.5px;color:var(--faint);border:1px solid var(--line);border-radius:999px;padding:4px 12px}
+.chips{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:12px}
+.chip{border:1px solid var(--line);border-radius:12px;padding:18px 10px;text-align:center;font-weight:600;transition:border-color .2s,transform .2s}
+.chip:hover{border-color:var(--cyan);transform:translateY(-3px)}
+.chip svg{width:44px;height:44px;display:block;margin:0 auto 10px}
+.chip small{display:block;font-family:var(--mono);font-weight:400;font-size:11px;color:var(--faint);margin-top:2px}
+.proj{padding:30px;text-align:center}
+.proj p{color:var(--soft);margin:6px 0 0}
+.proj h3{font-family:var(--display);font-size:20px;margin:8px 0 0}
+.contact{padding:32px;display:flex;flex-wrap:wrap;gap:24px;align-items:center;justify-content:space-between}
+.contact h3{font-family:var(--display);font-size:26px;margin:0 0 4px}
+.contact p{color:var(--soft);margin:0}
+.links{display:flex;gap:12px;flex-wrap:wrap}
+.links{flex-direction:row;gap:14px}
+.citem{display:flex;align-items:center;padding:10px;border:1px solid var(--line);border-radius:14px;background:rgba(255,255,255,.04);text-decoration:none;color:#fff;transition:border-color .2s,transform .2s}
+.citem:hover{border-color:var(--cyan);transform:translateY(-2px)}
+.cicon{width:44px;height:44px;border-radius:12px;background:#fff;display:flex;align-items:center;justify-content:center;flex:none}
+.citem:nth-child(2) .cicon{background:var(--grad)}
+.cicon svg{width:26px;height:26px}
+.ctext{display:flex;flex-direction:column;min-width:0}
+.ctext small{font-family:var(--mono);font-size:11px;color:var(--cyan);letter-spacing:.1em;text-transform:uppercase}
+.ctext b{font-size:16px;color:#fff;font-weight:600;overflow-wrap:anywhere}
+footer{position:relative;z-index:2;text-align:center;padding:30px 24px;color:var(--faint);font-size:13px;border-top:1px solid var(--line)}
+@media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}.role{animation:none}}
+</style>
+</head>
+<body>
+<div class="glow"></div>
+<canvas id="net"></canvas>
+
+<nav class="nav"><div class="nav-in">
+  <a class="brand" href="#top"><span class="badge">MW</span><span class="t">Wafika</span></a>
+  <ul><li><a href="#about">About</a></li><li><a href="#skills">Skills</a></li><li><a href="#projects">Projects</a></li><li><a href="#contact">Contact</a></li></ul>
+</div></nav>
+
+<main class="wrap" id="top">
+  <section class="hero">
+    <p class="hello">Hello, I'm</p>
+    <h1 class="grad">Mahamoodha Wafika M</h1>
+    <p class="role" id="role"></p>
+    <p class="lead">Second-year B.Tech <strong>AI &amp; Data Science</strong> student building strong fundamentals in <strong>Python</strong> and <strong>C</strong>, backed by real, verified certifications.</p>
+    <div class="cta">
+      <a class="btn p" href="#contact">Get in touch</a>
+      <a class="btn g" href="#skills">View skills</a>
+    </div>
+  </section>
+
+  <section id="about">
+    <span class="kicker">Who I am</span>
+    <h2>About</h2>
+    <div class="glass about reveal">
+      <p>I'm a <strong>second-year B.Tech student in AI &amp; Data Science</strong> with a goal of becoming a <strong>Full Stack Developer</strong>.</p>
+      <p>I focus on getting the fundamentals right first: core programming in <strong>Python, C and Java</strong>, supported by verified certifications that back up what I've learned.</p>
+    </div>
+  </section>
+
+  <section id="skills">
+    <span class="kicker">What I know</span>
+    <h2>Skills</h2>
+    <div class="glass cat reveal">
+      <div class="cat-h">
+        <div class="cat-l"><span class="ico">💻</span>Core Programming</div>
+        <span class="count">3 skills</span>
+      </div>
+      <div class="chips">
+        <div class="chip">
+          <svg viewBox="0 0 48 48" aria-hidden="true"><path fill="#3776AB" d="M24 6c-8 0-8 3-8 6v4h8v2H12c-4 0-6 3-6 8s2 8 6 8h3v-5c0-3 3-6 6-6h8c3 0 5-2 5-5v-8c0-3-3-4-10-4z"/><path fill="#FFD43B" d="M24 42c8 0 8-3 8-6v-4h-8v-2h12c4 0 6-3 6-8s-2-8-6-8h-3v5c0 3-3 6-6 6h-8c-3 0-5 2-5 5v8c0 3 3 4 10 4z"/><circle cx="19" cy="11" r="1.6" fill="#fff"/><circle cx="29" cy="37" r="1.6" fill="#3776AB"/></svg>
+          Python<small>fundamentals</small></div>
+        <div class="chip">
+          <svg viewBox="0 0 48 48" aria-hidden="true"><polygon points="24,3 43,14 43,34 24,45 5,34 5,14" fill="#00599C"/><path d="M31 19a9 9 0 1 0 0 10" stroke="#fff" stroke-width="5" fill="none"/></svg>
+          C<small>fundamentals</small></div>
+        <div class="chip">
+          <svg viewBox="0 0 48 48" aria-hidden="true"><path fill="#5382A1" d="M12 28h22v6a8 8 0 0 1-8 8h-6a8 8 0 0 1-8-8z"/><path d="M34 30h3a4 4 0 0 1 0 8h-4" stroke="#5382A1" stroke-width="3" fill="none"/><path d="M20 8c4 4-4 6 0 10M27 6c4 4-4 6 0 12" stroke="#E76F00" stroke-width="2.5" fill="none" stroke-linecap="round"/><path d="M10 45h26" stroke="#E76F00" stroke-width="2.5" stroke-linecap="round"/></svg>
+          Java<small>core</small></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects">
+    <span class="kicker">Building</span>
+    <h2>Projects</h2>
+    <div class="glass proj reveal">
+      <div style="font-size:28px">🛠️</div>
+      <h3>Coming soon</h3>
+      <p>Currently building. Projects will be added here as they're finished.</p>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="glass contact">
+      <div>
+        <h3>Let's connect</h3>
+        <p>Open to internships, collaborations, and anything AI &amp; data related.</p>
+      </div>
+      <div class="links">
+        <a class="citem" href="mailto:wafii9693@gmail.com" aria-label="Email">
+          <span class="cicon"><svg viewBox="0 0 48 48" aria-hidden="true"><rect x="4" y="9" width="40" height="30" rx="4" fill="#fff"/><path d="M4 13v22a4 4 0 0 0 4 4h4V20z" fill="#4285F4"/><path d="M44 13v22a4 4 0 0 1-4 4h-4V20z" fill="#34A853"/><path d="M8 11l16 12 16-12" stroke="#EA4335" stroke-width="5" fill="none" stroke-linejoin="round"/></svg></span>
+        </a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>Built &amp; maintained by Mahamoodha Wafika M · 2026</footer>
+
+<script>
+const reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+/* neural background */
+(function(){
+  const c=document.getElementById('net');
+  if(reduce){c.remove();return}
+  const x=c.getContext('2d'),COL=['139,92,246','34,211,238','232,121,249'],D=150;
+  let w,h,n;
+  function size(){
+    w=c.width=innerWidth;h=c.height=innerHeight;
+    const k=Math.max(28,Math.min(60,Math.floor(w*h/34000)));
+    n=Array.from({length:k},()=>({x:Math.random()*w,y:Math.random()*h,vx:(Math.random()-.5)*.35,vy:(Math.random()-.5)*.35,r:Math.random()*1.6+1,c:COL[Math.floor(Math.random()*3)]}));
+  }
+  function step(){
+    x.clearRect(0,0,w,h);
+    for(const p of n){p.x+=p.vx;p.y+=p.vy;if(p.x<0||p.x>w)p.vx*=-1;if(p.y<0||p.y>h)p.vy*=-1}
+    for(let i=0;i<n.length;i++)for(let j=i+1;j<n.length;j++){
+      const a=n[i],b=n[j],d=Math.hypot(a.x-b.x,a.y-b.y);
+      if(d<D){x.strokeStyle=`rgba(${a.c},${(1-d/D)*.18})`;x.beginPath();x.moveTo(a.x,a.y);x.lineTo(b.x,b.y);x.stroke()}
+    }
+    for(const p of n){x.beginPath();x.arc(p.x,p.y,p.r,0,6.283);x.fillStyle=`rgba(${p.c},.55)`;x.fill()}
+    requestAnimationFrame(step);
+  }
+  addEventListener('resize',size);size();step();
+})();
+/* typed role */
+const roles=["Full Stack Developer","AI & Data Science Student","Python & C Learner","Building Fundamentals"];
+const el=document.getElementById('role');
+let ri=0,ci=0,del=false;
+function type(){
+  const w=roles[ri];
+  if(!del){ci++;if(ci>w.length){del=true;setTimeout(type,1200);return}}
+  else{ci--;if(ci<0){del=false;ri=(ri+1)%roles.length;ci=0}}
+  el.innerHTML=w.slice(0,ci)+'<span class="cursor"></span>';
+  setTimeout(type,del?35:65);
+}
+reduce?el.textContent=roles[0]:type();
+/* scroll reveal */
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12});
+document.querySelectorAll('.reveal').forEach(e=>io.observe(e));
+</script>
+</body>
+</html>
